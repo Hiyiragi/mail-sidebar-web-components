@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
     <aside class="gmail-sidebar">
@@ -19,25 +20,28 @@
             <div class="sidebar__logo">📬 Mail App</div>
         </header>
         <section class="compose-container">
-            <div class="sidebar__compose">Compose</div>
+            <div class="sidebar__compose">Compose<i class="fa-solid fa-pencil"></i></div>
         </section>
         <section class="sidebar-options">
-            <div class="options-body options-body_fixed">
-                <span class="logo">📥</span>
-                <div class="text">Inbox</div>
-            </div>
-            <div class="options-body">
-                <span class="logo">⭐️</span>
-                <div class="text">Starred</div>
-            </div>
-            <div class="options-body">
-                <span class="logo">⏱</span>
-                <div class="text">Snoozed</div>
-            </div>
-            <div class="options-body">
-                <span class="logo">➡️</span>
-                <div class="text">Sent</div>
-            </div>
+            
+            <app-sidebar-button text="Inbox"
+                                boldText = "true"
+                                fixed = "true">
+                <slot slot="icon">📥</slot>
+            </app-sidebar-button>
+            
+            <app-sidebar-button text="Starred">
+                <slot slot="icon">⭐️</slot>
+            </app-sidebar-button>
+
+            <app-sidebar-button text="Snoozed">
+                <slot slot="icon">⏱</slot>
+            </app-sidebar-button>
+
+            <app-sidebar-button text="Sent">
+                <slot slot="icon">➡️</slot>
+            </app-sidebar-button>
+
             <app-sidebar-button text="Drafts" 
                                 unreadCount="1">
                 <slot slot="icon">📄</slot>
@@ -55,10 +59,10 @@
                 background-color: #F6F8FC; 
                 gap: 2rem;   
                 position: relative;
+                border-radius: 0 1.4rem 1.4rem 0;;
             }
 
             .options-body:hover {
-                border-radius: 0 1.4rem 1.4rem 0;
                 background-color: #D7D9D9;
                 cursor: pointer;
             }
@@ -67,7 +71,6 @@
                 display: inline-block;
                 font-size: 1.5rem;
                 font-family: Arial, Helvetica, sans-serif;
-                font-weight: bold;
             }
 
             .number {

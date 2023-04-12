@@ -14,17 +14,11 @@ class AppSidebarbutton extends HTMLElement {
         
         
         const fixed = this.getAttribute("fixed");
-        if (fixed==="true") {
+        
+        if (Number(number)>0 || fixed==="true") {
+            this.shadowRoot.querySelector(".text").style.fontWeight = `bold`;
             this.shadowRoot.querySelector(".options-body").style.backgroundColor = `#C2E6FF`;
         }
-        
-        if (Number(number)>0) {
-            this.setAttribute("boldText", "true");
-            console.log(this)
-        }
-        
-        const bold = this.getAttribute("boldText");
-        if (bold==="true") this.shadowRoot.querySelector(".text").style.fontWeight = `bold`;
     }
 }
 
